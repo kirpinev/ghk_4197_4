@@ -76,7 +76,7 @@ const productTitle = style({
 });
 
 const productIcon = style({
-  transform: "scale(1.1)",
+  // transform: "scale(1.1)",
 });
 
 const productText = style({

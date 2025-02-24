@@ -205,7 +205,6 @@ export const App = () => {
               <img
                 src={product.image}
                 alt=""
-                width={96}
                 height={96}
                 className={appSt.productIcon}
               />
@@ -251,7 +250,6 @@ export const App = () => {
               <img
                 src={product.image}
                 alt=""
-                width={96}
                 height={96}
                 className={appSt.productIcon}
               />
