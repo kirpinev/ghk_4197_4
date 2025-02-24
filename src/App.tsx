@@ -12,10 +12,8 @@ import transfer from "./assets/transfer.png";
 import cash from "./assets/cash.png";
 import discount from "./assets/discount.png";
 import family from "./assets/family.png";
-import robot from "./assets/robot.png";
-import gun from "./assets/gun.png";
-import man from "./assets/man.png";
 import information from "./assets/information.png";
+import protection from "./assets/protection.png";
 import { LS, LSKeys } from "./ls";
 import { appSt } from "./style.css";
 import { ThxLayout } from "./thx/ThxLayout";
@@ -24,6 +22,7 @@ import { useState } from "react";
 import { Status } from "@alfalab/core-components/status";
 import { Link } from "@alfalab/core-components/link";
 import { BottomSheet } from "@alfalab/core-components/bottom-sheet";
+import {List} from "@alfalab/core-components/list";
 
 interface Product {
   title: string;
@@ -44,7 +43,7 @@ const products: Array<Product> = [
   {
     title: "Бесплатная защита от мошенничества",
     text: "Бесплатно и надежно",
-    image: smileArrow,
+    image: protection,
     isNew: true,
   },
   {
@@ -256,26 +255,13 @@ export const App = () => {
           </ButtonMobile>
         }
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <img src={robot} alt="" width={30} height={30} />
-            <Typography.Text view="primary-medium">
-              Несанкционированное снятие денежных средств
-            </Typography.Text>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <img src={gun} alt="" width={30} height={30} />
-            <Typography.Text view="primary-medium">
-              Кража наличных денежных средств при нападении или грабеже
-            </Typography.Text>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <img src={man} alt="" width={30} height={30} />
-            <Typography.Text view="primary-medium">
-              Утеря или хищение банковской карты
-            </Typography.Text>
-          </div>
-        </div>
+        <List tag="ul" marker="•">
+          <List.Item>Несанкционированное снятие денежных средств</List.Item>
+          <List.Item>
+            Кража наличных денежных средств при нападении или грабеже
+          </List.Item>
+          <List.Item>Утеря или хищение банковской карты</List.Item>
+        </List>
 
         <Gap size={32} />
 
