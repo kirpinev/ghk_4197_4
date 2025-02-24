@@ -22,7 +22,7 @@ import { useState } from "react";
 import { Status } from "@alfalab/core-components/status";
 import { Link } from "@alfalab/core-components/link";
 import { BottomSheet } from "@alfalab/core-components/bottom-sheet";
-import {List} from "@alfalab/core-components/list";
+import { List } from "@alfalab/core-components/list";
 
 interface Product {
   title: string;
@@ -94,18 +94,31 @@ const products: Array<Product> = [
 ];
 
 export const App = () => {
-  const [loading, setLoading] = useState(false);
   const [thxShow, setThx] = useState(LS.getItem(LSKeys.ShowThx, false));
   const [expanded, setExpanded] = useState(false);
 
-  const submit = () => {
-    setLoading(true);
-
-    Promise.resolve().then(() => {
-      LS.setItem(LSKeys.ShowThx, true);
-      setThx(true);
-      setLoading(false);
+  const clickMore = () => {
+    window.gtag("event", "4197_get_info", {
+      variant_name: "4197_4",
     });
+  };
+
+  const clickSubmitMore = () => {
+    window.gtag("event", "4197_get_sub_after_info", {
+      variant_name: "4197_4",
+    });
+
+    LS.setItem(LSKeys.ShowThx, true);
+    setThx(true);
+  };
+
+  const submit = () => {
+    window.gtag("event", "4197_get_sub", {
+      variant_name: "4197_4",
+    });
+
+    LS.setItem(LSKeys.ShowThx, true);
+    setThx(true);
   };
 
   if (thxShow) {
@@ -171,7 +184,10 @@ export const App = () => {
                   <Link
                     pseudo={true}
                     view="secondary"
-                    onClick={() => setExpanded(true)}
+                    onClick={() => {
+                      setExpanded(true);
+                      clickMore();
+                    }}
                   >
                     Подробнее
                   </Link>
@@ -250,7 +266,7 @@ export const App = () => {
         titleAlign="center"
         title="Защита от мошенничества"
         actionButton={
-          <ButtonMobile block view="primary" loading={loading} onClick={submit}>
+          <ButtonMobile block view="primary" onClick={clickSubmitMore}>
             Оформить подписку за 399₽/мес.
           </ButtonMobile>
         }
@@ -284,7 +300,7 @@ export const App = () => {
       <Gap size={72} />
 
       <div className={appSt.bottomBtn}>
-        <ButtonMobile block view="primary" loading={loading} onClick={submit}>
+        <ButtonMobile block view="primary" onClick={submit}>
           Подключить
         </ButtonMobile>
       </div>

@@ -5,12 +5,6 @@ import { thxSt } from "./style.css";
 import { appSt } from "../style.css.ts";
 
 export const ThxLayout = () => {
-  const clickSubmit = () => {
-    window.gtag("event", "4198_get_sub", {
-      variant_name: "ghk_4197_4",
-    });
-  };
-
   return (
     <>
       <div className={thxSt.container}>
@@ -40,12 +34,7 @@ export const ThxLayout = () => {
       </div>
 
       <div className={appSt.bottomBtn}>
-        <ButtonMobile
-          block
-          view="primary"
-          href="https://alfa.me/ght"
-          onClick={clickSubmit}
-        >
+        <ButtonMobile block view="primary" href="https://alfa.me/ght">
           Оформить подписку
         </ButtonMobile>
       </div>
