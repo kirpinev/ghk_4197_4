@@ -34,7 +34,7 @@ export const ThxLayout = () => {
       </div>
 
       <div className={appSt.bottomBtn}>
-        <ButtonMobile block view="primary" href="alfabank://multistep-route?fromModule=FORM&stepNumber=0&alias=alfa-subscription-alias&version=2&source=strahovaniegh">
+        <ButtonMobile block view="primary" href="https://alfa.me/strGH">
           Оформить подписку
         </ButtonMobile>
       </div>
