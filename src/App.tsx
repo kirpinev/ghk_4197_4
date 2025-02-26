@@ -14,6 +14,9 @@ import discount from "./assets/discount.png";
 import family from "./assets/family.png";
 import information from "./assets/information.png";
 import protection from "./assets/protection.png";
+import image1 from "./assets/image1.png";
+import image2 from "./assets/image2.png";
+import image3 from "./assets/image3.png";
 import { LS, LSKeys } from "./ls";
 import { appSt } from "./style.css";
 import { ThxLayout } from "./thx/ThxLayout";
@@ -22,7 +25,6 @@ import { useState } from "react";
 import { Status } from "@alfalab/core-components/status";
 import { Link } from "@alfalab/core-components/link";
 import { BottomSheet } from "@alfalab/core-components/bottom-sheet";
-import { List } from "@alfalab/core-components/list";
 
 interface Product {
   title: string;
@@ -262,20 +264,129 @@ export const App = () => {
         open={expanded}
         onClose={() => setExpanded(false)}
         titleAlign="center"
-        title="Защита от мошенничества"
+        title={
+          <>
+            <Typography.TitleResponsive
+              tag="h6"
+              view="medium"
+              font="system"
+              weight="bold"
+              defaultMargins={false}
+            >
+              Защита от мошенничества
+            </Typography.TitleResponsive>
+            <Typography.Text view="primary-medium" color="secondary">
+              Комплексная защита ваших финансов 24/7
+            </Typography.Text>
+          </>
+        }
         actionButton={
           <ButtonMobile block view="primary" onClick={clickSubmitMore}>
             Оформить подписку за 399₽/мес.
           </ButtonMobile>
         }
       >
-        <List tag="ul" marker="•">
-          <List.Item>Несанкционированное снятие денежных средств</List.Item>
-          <List.Item>
-            Кража наличных денежных средств при нападении или грабеже
-          </List.Item>
-          <List.Item>Утеря или хищение банковской карты</List.Item>
-        </List>
+        <Gap size={8} />
+
+        <Typography.TitleResponsive
+          tag="h6"
+          view="small"
+          font="system"
+          weight="bold"
+          defaultMargins={false}
+        >
+          В каких случаях пригодится
+        </Typography.TitleResponsive>
+
+        <Gap size={16} />
+
+        <div
+          style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
+            <img src={image1} alt="" height={45} />
+            <Typography.Text view="primary-medium">
+              Несанкционированное снятие денежных средств
+            </Typography.Text>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
+            <img src={image2} alt="" height={45} />
+            <Typography.Text view="primary-medium">
+              Кража наличных денежных средств при нападении или грабеже
+            </Typography.Text>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
+            <img src={image3} alt="" height={45} />
+            <Typography.Text view="primary-medium">
+              Утеря или хищение банковской карты
+            </Typography.Text>
+          </div>
+        </div>
+
+        <Gap size={32} />
+
+        <Typography.TitleResponsive
+          tag="h6"
+          view="small"
+          font="system"
+          weight="bold"
+          defaultMargins={false}
+        >
+          Как это работает
+        </Typography.TitleResponsive>
+
+        <Gap size={16} />
+
+        <div
+          style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
+        >
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <Typography.Text view="primary-medium" weight="bold">
+              1.Мониторинг операций
+            </Typography.Text>
+            <Typography.Text view="primary-medium">
+              Круглосуточная проверка всех операций и мгновенные уведомления
+            </Typography.Text>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <Typography.Text view="primary-medium" weight="bold">
+              2.Блокировка при угрозе
+            </Typography.Text>
+            <Typography.Text view="primary-medium">
+              Мгновенная блокировка карты или счёта для предотвращения
+              дальнейших потерь
+            </Typography.Text>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <Typography.Text view="primary-medium" weight="bold">
+              3.Возмещение ущерба
+            </Typography.Text>
+            <Typography.Text view="primary-medium">
+              Оперативное возмещение утраченных средств — до 500 000 руб.
+            </Typography.Text>
+          </div>
+        </div>
 
         <Gap size={32} />
 
